@@ -45,6 +45,21 @@
         .item h2 {
             color: #d9534f;
         }
+        .button {
+        	display: inline-block;
+        	padding: 10px 20px;
+        	background-color: #fa635f;
+        	color: white;
+        	text-decoration: none;
+        	border: none;
+        	border-radius: 5px;
+        	font-size: 16px;
+        	cursor: pointer;
+    	}
+
+    	.button:hover {
+        	background-color: #ab423f;
+    	}
     </style>
 </head>
 <body>
@@ -53,8 +68,10 @@
         <p>Welcome to our bakery!</p>
     </header>
     <nav>
-        <a href="about_contact.html">About/Contact</a>
+        <a href="about_contact.html" class="button">About/Contact</a>
     </nav>
+    <header>
+    	<p>Everything baked is home made. Please click into the desired category to learn more</p>
     <div class="container">
         <div class="item">
             <a href="cakes.html">
@@ -77,3 +94,4 @@
     </div>
 </body>
 </html>
+
