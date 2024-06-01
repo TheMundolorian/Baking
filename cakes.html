@@ -15,6 +15,12 @@
             padding: 20px;
             text-align: center;
         }
+        header h1 {
+            margin: 20px 0; /* Adjust margin for better spacing */
+        }
+        header p {
+            margin: 5px 0; /* Adjust margin for better spacing */
+        }
         nav {
             background-color: #d9534f;
             padding: 10px;
@@ -30,41 +36,36 @@
             margin: 20px auto;
             max-width: 800px;
             text-align: center;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
         }
         .item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: inline-block;
+            margin: 20px;
         }
         .item img {
             width: 200px;
             height: 200px;
-            border-radius: 25%;
+            border-radius: 50%;
             object-fit: cover;
             border: 5px solid #d9534f;
         }
         .item h2 {
             color: #d9534f;
-            margin-top: 10px;
         }
         .button {
-        	display: inline-block;
-        	padding: 10px 20px;
-        	background-color: #fa635f;
-        	color: white;
-        	text-decoration: none;
-        	border: none;
-        	border-radius: 5px;
-        	font-size: 16px;
-        	cursor: pointer;
-    	}
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fa635f;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-    	.button:hover {
-        	background-color: #ab423f;
-    	}
+        .button:hover {
+            background-color: #ab423f;
+        }
     </style>
 </head>
 <body>
