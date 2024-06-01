@@ -12,13 +12,25 @@
         }
         header {
             background-color: #f2dede;
-            padding: 20px;
+            padding: 20px; /* Increase padding to provide more space */
             text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        header h1 {
+            font-size: 24px; /* Decrease font size to fit within the header */
+            margin: 5px 0; /* Adjust margin for better spacing */
+        }
+        header p {
+            margin: 5px 0; /* Adjust margin for better spacing */
         }
         nav {
             background-color: #d9534f;
             padding: 10px;
             text-align: center;
+            margin-top: 100px; /* Adjust margin-top to create space below the fixed header */
         }
         nav a {
             color: #fff;
@@ -46,20 +58,20 @@
             color: #d9534f;
         }
         .button {
-        	display: inline-block;
-        	padding: 10px 20px;
-        	background-color: #fa635f;
-        	color: white;
-        	text-decoration: none;
-        	border: none;
-        	border-radius: 5px;
-        	font-size: 16px;
-        	cursor: pointer;
-    	}
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fa635f;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-    	.button:hover {
-        	background-color: #ab423f;
-    	}
+        .button:hover {
+            background-color: #ab423f;
+        }
     </style>
 </head>
 <body>
@@ -68,10 +80,8 @@
         <p>Welcome to our bakery!</p>
     </header>
     <nav>
-        <a href="about_contact.html" class="button">About/Contact</a>
+        <a href="about_contact.html" class="button">Contact Us</a>
     </nav>
-    <header>
-    	<p>Everything baked is home made. Please click into the desired category to learn more</p>
     <div class="container">
         <div class="item">
             <a href="cakes.html">
@@ -91,7 +101,13 @@
             <h2>Cupcakes</h2>
             </a>
         </div>
+        <div class="container">
+            <div class="item">
+                <h2>About Me</h2>
+                <!--<img src="C:\Dev\Baking\Photos\myself.jpg" alt="Myself">
+                <p>This is where I write about myself and yada...yada</p>-->
+            </div>
+        </div>
     </div>
 </body>
 </html>
-
