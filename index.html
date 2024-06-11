@@ -26,6 +26,30 @@
             padding: 10px;
             text-align: center;
         }
+                nav select {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fa635f;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        nav select:hover {
+            background-color: #ab423f;
+        }
+        nav select:focus {
+            outline: none;
+        }
+        nav option {
+            background-color: #fa635f;
+            color: white;
+            font-size: 16px;
+        }
+        nav option:hover {
+            background-color: #ab423f;
+        }
         nav a {
             color: #fff;
             text-decoration: none;
@@ -74,23 +98,29 @@
         <p>Welcome to our bakery!</p>
     </header>
     <nav>
+    <select onchange="location = this.value;">
+            <option value="#">Select your treat</option>
+            <option value="cakes.html">Cakes</option>
+            <option value="cookies.html">Cookies</option>
+            <option value="cupcakes.html">Cupcakes</option>
+        </select>
         <a href="about_contact.html" class="button">Contact Us</a>
     </nav>
     <div class="container">
         <div class="item">
-            <a href="cakes.html">
+            <a href="cakes.html" style="text-decoration: none;">
             <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/tres_leches.jpg?raw=true" alt="Cakes">
             <h2>Cakes</h2>
             </a>
         </div>
         <div class="item">
-            <a href="cookies.html">
+            <a href="cookies.html" style="text-decoration: none;">
             <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/cookies.jpg?raw=true" alt="Cookies">
             <h2>Cookies</h2>
             </a>
         </div>
         <div class="item">
-            <a href="cupcakes.html">
+            <a href="cupcakes.html" style="text-decoration: none;">
             <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/cupcakes.jpg?raw=true" alt="Cupcakes">
             <h2>Cupcakes</h2>
             </a>
