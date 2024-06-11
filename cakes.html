@@ -26,6 +26,30 @@
             padding: 10px;
             text-align: center;
         }
+        nav select {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fa635f;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        nav select:hover {
+            background-color: #ab423f;
+        }
+        nav select:focus {
+            outline: none;
+        }
+        nav option {
+            background-color: #fa635f;
+            color: white;
+            font-size: 16px;
+        }
+        nav option:hover {
+            background-color: #ab423f;
+        }
         nav a {
             color: #fff;
             text-decoration: none;
@@ -74,6 +98,11 @@
     </header>
     <nav>
         <a href="index.html" class="button">Home</a>
+        <select onchange="location = this.value;">
+            <option value="#">Select your treat</option>
+            <option value="cookies.html">Cookies</option>
+            <option value="cupcakes.html">Cupcakes</option>
+        </select>
         <a href="about_contact.html" class="button">Contact Us</a>
     </nav>
     <div class="container">
