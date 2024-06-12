@@ -60,16 +60,21 @@
             margin: 20px auto;
             max-width: 800px;
             text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .item {
-            display: inline-block;
             margin: 20px;
+            flex: 1 1 200px; /* Flex basis of 200px */
+            max-width: 300px; /* Maximum width of 300px */
+            text-align: center;
         }
         .item img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
+            width: 100%;
+            height: 75%;
+            border-radius: 50%; /* Make images circular */
+            object-fit: cover; /* Preserve aspect ratio */
             border: 5px solid #4f64d9;
         }
         .item h2 {
@@ -90,6 +95,13 @@
         .button:hover {
             background-color: #4f64d9;
         }
+
+        @media only screen and (max-width: 768px) {
+            .item {
+                flex: 1 1 100%; /* Full width for smaller screens */
+                max-width: none; /* No maximum width */
+            }
+        }
     </style>
 </head>
 <body>
@@ -109,29 +121,23 @@
     <div class="container">
         <div class="item">
             <a href="cakes.html" style="text-decoration: none;">
-            <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/tres_leches.jpg?raw=true" alt="Cakes">
-            <h2>Cakes</h2>
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/tres_leches.jpg?raw=true" alt="Cakes">
+                <h2>Cakes</h2>
             </a>
         </div>
         <div class="item">
             <a href="cookies.html" style="text-decoration: none;">
-            <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/cookies.jpg?raw=true" alt="Cookies">
-            <h2>Cookies</h2>
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/cookies.jpg?raw=true" alt="Cookies">
+                <h2>Cookies</h2>
             </a>
         </div>
         <div class="item">
             <a href="cupcakes.html" style="text-decoration: none;">
-            <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/cupcakes.jpg?raw=true" alt="Cupcakes">
-            <h2>Cupcakes</h2>
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/cupcakes.jpg?raw=true" alt="Cupcakes">
+                <h2>Cupcakes</h2>
             </a>
         </div>
-        <div class="container">
-            <div class="item">
-                <h2>About Me</h2>
-                <!--<img src="C:\Dev\Baking\Photos\myself.jpg" alt="Myself">
-                <p>This is where I write about myself and yada...yada</p>-->
-            </div>
-        </div>
+        <!-- Other items can go here -->
     </div>
 </body>
 </html>
