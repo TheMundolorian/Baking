@@ -14,6 +14,7 @@
             background-color: #ccccff;
             padding: 20px;
             text-align: center;
+            background-image: linear-gradient(#ccccff, #4f64d9);
         }
         header h1 {
             margin: 20px 0; /* Adjust margin for better spacing */
@@ -60,20 +61,44 @@
             margin: 20px auto;
             max-width: 800px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         .item {
-            display: inline-block;
-            margin: 20px;
+            margin: 20px 0;
         }
         .item img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            border-radius: 25%;
             object-fit: cover;
             border: 5px solid #4f64d9;
         }
-        .item h2 {
-            color: #4f64d9;
+        .scroll-container {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            overflow-x: hidden;
+        }
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .scroll-left {
+            left: 0;
+        }
+        .scroll-right {
+            right: 0;
+        }
+        .item p {
+            margin-top: 10px;
         }
         .button {
             display: inline-block;
@@ -108,13 +133,23 @@
     <div class="container">
         <div class="item">
             <h2>Cookies</h2>
-            <p>Below is some of the work I have done in the past</p>
-            <div class="item">
-                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2292.JPEG?raw=true" alt="Memorial Day coookies and cream cookies">
-                <p>Memorial Day cookies and cream cookies</p>
-            </div>
-            <!-- Add more images here -->
+            <p>Below are some of the cookies I have baked and designed.</p>
+            <button class="scroll-button scroll-left" onclick="scrollImages(-200)">&#10094;</button>
+            <div class="scroll-container">
+                <div class="item">
+                    <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2292.JPEG?raw=true" alt="Memorial Day coookies and cream cookies">
+                </div>
+                    <!-- Add more images here -->
+        </div>
+            <button class="scroll-button scroll-right" onclick="scrollImages(200)">&#10095;</button>
         </div>
     </div>
+
+    <script>
+        function scrollImages(scrollOffset) {
+            const container = document.querySelector('.scroll-container');
+            container.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
