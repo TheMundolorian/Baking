@@ -68,8 +68,8 @@
             margin: 20px 0;
         }
         .item img {
-            width: 250px;
-            height: 250px;
+            width: 300px;
+            height: 300px;
             border-radius: 25%;
             object-fit: cover;
             border: 5px solid #4f64d9;
@@ -77,16 +77,11 @@
         .scroll-container {
             display: flex;
             overflow-x: hidden;
-            cursor: grab;
-            touch-action: pan-y;
-        }
-        .scroll-container:active {
-            cursor: grabbing;
         }
         .scroll-button {
             position: absolute;
-            top: 50%;
-            transform: translateY(50%);
+            top: 60%;
+            transform: translateY(-50%);
             background-color: #4f64d9;
             color: white;
             border: none;
@@ -95,6 +90,7 @@
             z-index: 1;
             border-radius: 25%; /* Circular button */
             font-size: 20px; /* Adjust the font size */
+            visibility: hidden; /* Initially hidden */
         }
         .scroll-left {
             left: 0;
@@ -122,7 +118,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="updateScrollButtons()">
     <header>
         <h1>Mrs. Raymundo's Confections</h1>
     </header>
@@ -139,8 +135,8 @@
         <div class="item">
             <h2>Cakes</h2>
             <p>Below are some of the cakes I have baked and designed. The first few are Tres Leches cakes which can be made in 13x9 or 8x8 pans. Everything else is made to order with requests for flavor and design. Please give me a call or send an email and we can discuss your request!</p>
-            <button class="scroll-button scroll-left" ontouchstart="startDragging(event)" onclick="scrollImages(-200)">&#10094;</button>
-            <div class="scroll-container" ontouchmove="drag(event)">
+            <button class="scroll-button scroll-left" onclick="scrollImages(-600)">&#10094;</button>
+            <div class="scroll-container">
                 <div class="item">
                     <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_7855.JPEG?raw=true" alt="Traditional Tres leches cake">
                 </div>
@@ -154,8 +150,8 @@
                     <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2241.JPEG?raw=true" alt="Bluey themed vanilla cake">
                 </div>
                 <div class="item">
-                	<img src="https://github.com/TheMundolorian/Baking/blob/master/Photos/AD163820-3B2C-425B-A625-84278028A28B.JPEG?raw=true" alt="Pineapple themed vanilla cake">
-            	</div>
+                    <img src="https://github.com/TheMundolorian/Baking/blob/master/Photos/AD163820-3B2C-425B-A625-84278028A28B.JPEG?raw=true" alt="Pineapple themed vanilla cake">
+                </div>
                 <div class="item">
                     <img src="https://github.com/TheMundolorian/Baking/blob/master/Photos/F72380F0-5E52-4A25-BE3C-FD23D67846BF.JPEG?raw=true" alt="3 tier Boho themed semi-naked vanilla cake">
                 </div>
@@ -163,42 +159,39 @@
                     <img src="https://github.com/TheMundolorian/Baking/blob/master/Photos/IMG_0252.JPEG?raw=true" alt="Galaxy themed cake">
                 </div>
                     <!-- Add more images here -->
-        </div>
-            <button class="scroll-button scroll-right" ontouchstart="startDragging(event)" onclick="scrollImages(200)">&#10095;</button>
+            </div>
+            <button class="scroll-button scroll-right" onclick="scrollImages(600)">&#10095;</button>
         </div>
     </div>
 
     <script>
-        let isDragging = false;
-        let initialX;
-
-        function startDragging(e) {
-            isDragging = true;
-            initialX = e.touches[0].clientX;
-
-            document.addEventListener('touchmove', drag);
-            document.addEventListener('touchend', stopDragging);
-        }
-
-        function drag(e) {
-            if (isDragging) {
-                const container = document.querySelector('.scroll-container');
-                const offsetX = initialX - e.touches[0].clientX;
-                container.scrollLeft += offsetX;
-                initialX = e.touches[0].clientX;
-            }
-        }
-
-        function stopDragging() {
-            isDragging = false;
-            document.removeEventListener('touchmove', drag);
-            document.removeEventListener('touchend', stopDragging);
-        }
-
         function scrollImages(scrollOffset) {
             const container = document.querySelector('.scroll-container');
             container.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+            updateScrollButtons(container);
         }
+
+        function updateScrollButtons() {
+            const container = document.querySelector('.scroll-container');
+            const scrollLeftButton = document.querySelector('.scroll-left');
+            const scrollRightButton = document.querySelector('.scroll-right');
+
+            // Check if the container has reached its maximum scroll position
+            if (container.scrollLeft === 0) {
+                scrollLeftButton.style.visibility = 'hidden'; // Hide left button
+            } else {
+                scrollLeftButton.style.visibility = 'visible'; // Show left button
+            }
+
+            if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+                scrollRightButton.style.visibility = 'hidden'; // Hide right button
+            } else {
+                scrollRightButton.style.visibility = 'visible'; // Show right button
+            }
+        }
+
+        // Initial call to update buttons' visibility when page loads
+        window.onload = updateScrollButtons;
     </script>
 </body>
 </html>
