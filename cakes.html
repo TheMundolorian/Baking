@@ -77,17 +77,23 @@
         .scroll-container {
             display: flex;
             overflow-x: hidden;
+            cursor: grab;
+        }
+        .scroll-container:active {
+            cursor: grabbing;
         }
         .scroll-button {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
+            transform: translateY(50%);
+            background-color: #4f64d9;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 15px;
             cursor: pointer;
             z-index: 1;
+            border-radius: 25%; /* Circular button */
+            font-size: 20px; /* Adjust the font size */
         }
         .scroll-left {
             left: 0;
@@ -133,7 +139,7 @@
             <h2>Cakes</h2>
             <p>Below are some of the cakes I have baked and designed. The first few are Tres Leches cakes which can be made in 13x9 or 8x8 pans. Everything else is made to order with requests for flavor and design. Please give me a call or send an email and we can discuss your request!</p>
             <button class="scroll-button scroll-left" onclick="scrollImages(-200)">&#10094;</button>
-            <div class="scroll-container">
+            <div class="scroll-container" onmousedown="startDragging(event)">
                 <div class="item">
                     <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_7855.JPEG?raw=true" alt="Traditional Tres leches cake">
                 </div>
@@ -162,6 +168,32 @@
     </div>
 
     <script>
+        let isDragging = false;
+        let initialX;
+
+        function startDragging(e) {
+            isDragging = true;
+            initialX = e.clientX;
+
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', stopDragging);
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                const container = document.querySelector('.scroll-container');
+                const offsetX = initialX - e.clientX;
+                container.scrollLeft += offsetX;
+                initialX = e.clientX;
+            }
+        }
+
+        function stopDragging() {
+            isDragging = false;
+            document.removeEventListener('mousemove', drag);
+            document.removeEventListener('mouseup', stopDragging);
+        }
+
         function scrollImages(scrollOffset) {
             const container = document.querySelector('.scroll-container');
             container.scrollBy({ left: scrollOffset, behavior: 'smooth' });
