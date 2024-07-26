@@ -44,33 +44,34 @@
             margin-top: 0;
             color: #5f79fa;
         }
-        .gallery {
+        .collage {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
             position: relative;
-            display: flex;
-            align-items: center;
         }
-        .gallery img {
-            width: 300px;
-            height: 300px;
-            border-radius: 25%;
-            padding: 10px;
-        }
-        .menu {
-            list-style-type: none;
-            padding: 0;
-        }
-        .menu li {
-            background-color: #4f64d9;
-            margin: 10px 0;
-            padding: 10px;
+        .collage img {
+            width: 100%;
+            height: auto;
             border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            color: white;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
-        .scroll-container {
-            display: flex;
-            overflow-x: hidden;
+        .collage img:hover {
+            transform: scale(1.05);
+        }
+        .collage-section {
+            position: relative;
+        }
+        .collage-section h3 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1em;
         }
         .scroll-button {
             position: absolute;
@@ -92,10 +93,9 @@
         .scroll-right {
             right: 10px;
         }
-        .menu h3 {
-            font-size: 0.8em;
-            color: #333;
-            margin-top: 10px;
+        .scroll-container {
+            display: flex;
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -105,34 +105,37 @@
     </header>
     <nav>
         <a href="index.html" class="button">Home</a>
-        <a href="gallery.html" class="button">Gallery</a>
         <a href="about_contact.html" class="button">Contact Us</a>
     </nav>
-    <section id="menu">
-        <h2>Menu & Prices</h2>
-        <ul class="menu">
-            <li><span>Tres leches cake</span> <span>$45</span></li>
-            <li><span>Tres leches cupcakes</span> <span>$30/dozen</span></li>
-            <li><span>Regular cakes</span> <span>Call/Email for pricing</span></li>            
-            <li><span>Cupcakes*</span> <span>$24/dozen</span></li>
-            <li><span>Cookies</span> <span>$1 per cookie</span></li>
-            <li><span>Pies</span> <span>Apple - $25 Pumpkin Chiffon - $30</span></li>
-            <h3>*Prices subject to change based on flavor, design and additions</h3>
-        </ul>
-    </section>
     <section id="gallery">
-        <h2>Gallery <a href="gallery.html" class="button">(See More)</a></h2>
-        <div class="gallery">
-            <button class="scroll-button scroll-left" onclick="scrollImages(-315)">&#10094;</button>
-            <div class="scroll-container">
+        <h2>Gallery</h2>
+        <div class="collage">
+            <!-- Cakes Section -->
+            <div class="collage-section" id="cakes">
                 <img src="https://github.com/TheMundolorian/Baking/blob/master/Photos/AD163820-3B2C-425B-A625-84278028A28B.JPEG?raw=true" alt="Cake">
-                <img src="https://preppykitchen.com/wp-content/uploads/2023/08/Apple-Pie-Recipe-Feature.jpg" alt="Pie">
-                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2292.JPEG?raw=true" alt="Cookies">
-                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2678.JPEG?raw=true" alt="Cupcakes">
                 <img src="https://github.com/TheMundolorian/Baking/blob/master/Photos/IMG_0252.JPEG?raw=true" alt="Galaxy themed cake">
                 <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/71113418607__CA7050A3-AFDE-401E-9FD1-A8BBAE4138F4.JPEG?raw=true" alt="Traditional Tres leches cake">
             </div>
-            <button class="scroll-button scroll-right" onclick="scrollImages(315)">&#10095;</button>
+
+            <!-- Cookies Section -->
+            <div class="collage-section" id="cookies">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2292.JPEG?raw=true" alt="Cookies">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2241.JPEG?raw=true" alt="Bluey Cake">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_7855.JPEG?raw=true" alt="Double Tres Leches Cake">
+            </div>
+
+            <!-- Cupcakes Section -->
+            <div class="collage-section" id="cupcakes">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2678.JPEG?raw=true" alt="Cupcakes">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2405.JPEG?raw=true" alt="Red Velvet Cupcake">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_7853.JPEG?raw=true" alt="NY Tres Leches Cake">
+            </div>
+
+            <!-- Pies Section -->
+            <div class="collage-section" id="pies">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/ApplePie.JPEG?raw=true" alt="Pie">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2289.JPEG?raw=true" alt="Cupcake">
+            </div>
         </div>
     </section>
     <section id="contact">
@@ -146,7 +149,7 @@
         function scrollImages(scrollOffset) {
             const container = document.querySelector('.scroll-container');
             container.scrollBy({ left: scrollOffset, behavior: 'smooth' });
-            updateScrollButtons(container);
+            updateScrollButtons();
         }
 
         function updateScrollButtons() {

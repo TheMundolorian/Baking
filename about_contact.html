@@ -9,87 +9,93 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #ccccff;
         }
         header {
-            background-color: #ccccff;
+            background-color: #4f64d9;
             padding: 20px;
             text-align: center;
-            background-image: linear-gradient(#ccccff, #4f64d9);
         }
         header h1 {
-            margin: 20px 0; /* Adjust margin for better spacing */
-        }
-        header p {
-            margin: 5px 0; /* Adjust margin for better spacing */
+            margin: 0;
+            font-size: 2.5em;
+            color: white;
         }
         nav {
-            background-color: #4f64d9;
+            background-color: #5f79fa;
             padding: 10px;
             text-align: center;
-        }
-        nav select {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #5f79fa;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        nav select:hover {
-            background-color: #4f64d9;
-        }
-        nav select:focus {
-            outline: none;
-        }
-        nav option {
-            background-color: #5f79fa;
-            color: white;
-            font-size: 16px;
-        }
-        nav option:hover {
-            background-color: #4f64d9;
         }
         nav a {
             color: #fff;
+            margin: 0 15px;
             text-decoration: none;
-            padding: 10px;
-            margin: 0 5px;
+            font-weight: bold;
         }
-        .container {
+        section {
+            padding: 20px;
             margin: 20px auto;
-            max-width: 800px;
-            text-align: center;
+            max-width: 1200px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .item {
-            display: inline-block;
-            margin: 20px;
+        section h2 {
+            margin-top: 0;
+            color: #5f79fa;
         }
-        .item img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #4f64d9;
+        .gallery {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
-        .item h2 {
-            color: #4f64d9;
+        .gallery img {
+            width: 300px;
+            height: 300px;
+            border-radius: 25%;
+            padding: 10px;
         }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #5f79fa;
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 15px;
-            font-size: 16px;
-            cursor: pointer;
+        .menu {
+            list-style-type: none;
+            padding: 0;
         }
-
-        .button:hover {
+        .menu li {
             background-color: #4f64d9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+        }
+        .scroll-container {
+            display: flex;
+            overflow-x: hidden;
+        }
+        .scroll-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #4f64d9;
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 1;
+            border-radius: 50%;
+            font-size: 20px;
+            visibility: hidden;
+        }
+        .scroll-left {
+            left: 10px;
+        }
+        .scroll-right {
+            right: 10px;
+        }
+        .menu h3 {
+            font-size: 0.8em;
+            color: #333;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -99,17 +105,14 @@
     </header>
     <nav>
         <a href="index.html" class="button">Home</a>
-        <select onchange="location = this.value;">
-            <option value="#">Select your treat</option>
-            <option value="cakes.html">Cakes</option>
-            <option value="cookies.html">Cookies</option>
-            <option value="cupcakes.html">Cupcakes</option>
-        </select>
+        <a href="gallery.html" class="button">Gallery</a>
     </nav>
-    <div class="container">
+    <section id="contact">
         <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:raymundoconfections@gmail.com">raymundoconfections@gmail.com</a></p>
-        <!--<p>Phone number: <a href="tel:603-341-2644">603-341-2644</a> or <a href="tel:603-661-7717">603-661-7717</a></p>-->
-    </div>
+        <p>Email: <a href="mailto:info@raymundosconfections.com">info@raymundosconfections.com</a></p>
+        <p>Phone: (555) 123-4567</p>
+        <p>Address: 123 Baking Lane, Sweet City, CA 98765</p>
+    </section>
+    
 </body>
 </html>
