@@ -9,136 +9,167 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #ccccff;
         }
         header {
-            background-color: #ccccff;
+            background-color: #4f64d9;
             padding: 20px;
             text-align: center;
-            background-image: linear-gradient(#ccccff, #4f64d9);
         }
         header h1 {
-            margin: 20px 0; /* Adjust margin for better spacing */
-        }
-        header p {
-            margin: 5px 0; /* Adjust margin for better spacing */
+            margin: 0;
+            font-size: 2.5em;
+            color: white;
         }
         nav {
-            background-color: #4f64d9;
+            background-color: #5f79fa;
             padding: 10px;
             text-align: center;
-        }
-        nav select {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #5f79fa;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        nav select:hover {
-            background-color: #4f64d9;
-        }
-        nav select:focus {
-            outline: none;
-        }
-        nav option {
-            background-color: #5f79fa;
-            color: white;
-            font-size: 16px;
-        }
-        nav option:hover {
-            background-color: #4f64d9;
         }
         nav a {
             color: #fff;
+            margin: 0 15px;
             text-decoration: none;
-            padding: 10px;
-            margin: 0 5px;
+            font-weight: bold;
         }
-        .container {
+        section {
+            padding: 20px;
             margin: 20px auto;
-            max-width: 800px;
-            text-align: center;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            max-width: 1200px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .item {
-            margin: 20px;
-            flex: 1 1 200px; /* Flex basis of 200px */
-            max-width: 300px; /* Maximum width of 300px */
-            text-align: center;
+        section h2 {
+            margin-top: 0;
+            color: #5f79fa;
         }
-        .item img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%; /* Make images circular */
-            object-fit: cover; /* Preserve aspect ratio */
-            border: 5px solid #4f64d9;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit);
+            gap: 10px;
+            height: 350px;
         }
-        .item h2 {
-            color: #4f64d9;
+        .gallery img {
+            width: 300px;
+            height:  300px;
+            border-radius: 25%;
+            padding: 10px
         }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #5f79fa;
-            color: white;
-            text-decoration: none;
-            border: none;
-            border-radius: 15px;
-            font-size: 16px;
-            cursor: pointer;
+        .menu {
+            list-style-type: none;
+            padding: 0;
         }
-
-        .button:hover {
+        .menu li {
             background-color: #4f64d9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
         }
-
-        @media only screen and (max-width: 768px) {
-            .item {
-                flex: 1 1 100%; /* Full width for smaller screens */
-                max-width: none; /* No maximum width */
-            }
+        .scroll-container {
+            display: flex;
+            overflow-x: hidden;
+        }
+        .scroll-button {
+            position: absolute;
+            top: 60%;
+            transform: translateY(-50%);
+            background-color: #4f64d9;
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 1;
+            border-radius: 25%; /* Circular button */
+            font-size: 20px; /* Adjust the font size */
+            visibility: hidden; /* Initially hidden */
+        }
+        .scroll-left {
+            left: 0;
+        }
+        .scroll-right {
+            right: 0;
+        }
+                .menu h3 {
+            font-size: 0.8em;
+            color: #333;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Mrs. Raymundo's Confections</h1>
-        <p>Welcome to our bakery!</p>
     </header>
     <nav>
-        <select onchange="location = this.value;">
-            <option value="#">Select your treat</option>
-            <option value="cakes.html">Cakes</option>
-            <option value="cookies.html">Cookies</option>
-            <option value="cupcakes.html">Cupcakes</option>
-        </select>
-        <a href="about_contact.html" class="button">Contact Us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
     </nav>
-    <div class="container">
-        <div class="item">
-            <a href="cakes.html" style="text-decoration: none;">
-                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/tres_leches.jpg?raw=true" alt="Cakes">
-                <h2>Cakes</h2>
-            </a>
+    <section id="menu">
+        <h2>Menu & Prices</h2>
+        <ul class="menu">
+            <li><span>Tres leches cake</span> <span>$45</span></li>
+            <li><span>Tres leches cupcakes</span> <span>$30/dozen</span></li>
+            <li><span>Regular cakes</span> <span>Call/Email for pricing</span></li>            
+            <li><span>Cupcakes*</span> <span>$24/dozen</span></li>
+            <li><span>Cookies</span> <span>$1 per cookie</span></li>
+            <li><span>Pies</span> <span>Apple - $25 Pumpkin Chiffon - $30</span></li>
+            <h3>*Prices subjext to change based on flavor, design and additions</h3>
+        </ul>
+    </section>
+    <section id="gallery">
+        <h2>Gallery (See More)</h2>
+        <div class="gallery">
+        	<button class="scroll-button scroll-left" onclick="scrollImages(-315)">&#10094;</button>
+        	<div class="scroll-container">
+              <img src="https://github.com/TheMundolorian/Baking/blob/master/Photos/AD163820-3B2C-425B-A625-84278028A28B.JPEG?raw=true" alt="Pineapple Themed Cake">
+              <img src="https://preppykitchen.com/wp-content/uploads/2023/08/Apple-Pie-Recipe-Feature.jpg" alt="Apple Pie">
+              <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2292.JPEG?raw=true" alt="Memorial Day Cookies">
+              <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2678.JPEG?raw=true" alt="Bluey Cupcakes">
+              <img src=https://github.com/TheMundolorian/Baking/blob/master/Photos/IMG_2405.JPEG?raw=true alt="Red Velvet Cupcakes">
+            </div>
+            <button class="scroll-button scroll-right" onclick="scrollImages(315)">&#10095;</button>
         </div>
-        <div class="item">
-            <a href="cookies.html" style="text-decoration: none;">
-                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/cookies.jpg?raw=true" alt="Cookies">
-                <h2>Cookies</h2>
-            </a>
-        </div>
-        <div class="item">
-            <a href="cupcakes.html" style="text-decoration: none;">
-                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/cupcakes.jpg?raw=true" alt="Cupcakes">
-                <h2>Cupcakes</h2>
-            </a>
-        </div>
-        <!-- Other items can go here -->
-    </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:info@raymundosconfections.com">info@raymundosconfections.com</a></p>
+        <p>Phone: (555) 123-4567</p>
+        <p>Address: 123 Baking Lane, Sweet City, CA 98765</p>
+    </section>
+    
+	<script>
+        function scrollImages(scrollOffset) {
+            const container = document.querySelector('.scroll-container');
+            container.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+            updateScrollButtons(container);
+        }
+
+        function updateScrollButtons() {
+            const container = document.querySelector('.scroll-container');
+            const scrollLeftButton = document.querySelector('.scroll-left');
+            const scrollRightButton = document.querySelector('.scroll-right');
+
+            // Check if the container has reached its maximum scroll position
+            if (container.scrollLeft === 0) {
+                scrollLeftButton.style.visibility = 'hidden'; // Hide left button
+            } else {
+                scrollLeftButton.style.visibility = 'visible'; // Show left button
+            }
+
+            if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+                scrollRightButton.style.visibility = 'hidden'; // Hide right button
+            } else {
+                scrollRightButton.style.visibility = 'visible'; // Show right button
+            }
+        }
+
+        // Initial call to update buttons' visibility when page loads
+        window.onload = updateScrollButtons;
+    </script>
 </body>
 </html>
