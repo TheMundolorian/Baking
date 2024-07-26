@@ -45,16 +45,15 @@
             color: #5f79fa;
         }
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit);
-            gap: 10px;
-            height: 350px;
+            position: relative;
+            display: flex;
+            align-items: center;
         }
         .gallery img {
             width: 300px;
-            height:  300px;
+            height: 300px;
             border-radius: 25%;
-            padding: 10px
+            padding: 10px;
         }
         .menu {
             list-style-type: none;
@@ -75,7 +74,7 @@
         }
         .scroll-button {
             position: absolute;
-            top: 60%;
+            top: 50%;
             transform: translateY(-50%);
             background-color: #4f64d9;
             color: white;
@@ -83,17 +82,17 @@
             padding: 15px;
             cursor: pointer;
             z-index: 1;
-            border-radius: 25%; /* Circular button */
-            font-size: 20px; /* Adjust the font size */
-            visibility: hidden; /* Initially hidden */
+            border-radius: 50%;
+            font-size: 20px;
+            visibility: hidden;
         }
         .scroll-left {
-            left: 0;
+            left: 10px;
         }
         .scroll-right {
-            right: 0;
+            right: 10px;
         }
-                .menu h3 {
+        .menu h3 {
             font-size: 0.8em;
             color: #333;
             margin-top: 10px;
@@ -105,9 +104,9 @@
         <h1>Mrs. Raymundo's Confections</h1>
     </header>
     <nav>
-        <a href="#gallery">Gallery</a>
-        <a href="#menu">Menu</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html" class="button">Home</a>
+        <a href="cakes.html" class="button">Gallery</a>
+        <a href="about_contact.html" class="button">Contact Us</a>
     </nav>
     <section id="menu">
         <h2>Menu & Prices</h2>
@@ -124,13 +123,14 @@
     <section id="gallery">
         <h2>Gallery (See More)</h2>
         <div class="gallery">
-        	<button class="scroll-button scroll-left" onclick="scrollImages(-315)">&#10094;</button>
-        	<div class="scroll-container">
-              <img src="https://github.com/TheMundolorian/Baking/blob/master/Photos/AD163820-3B2C-425B-A625-84278028A28B.JPEG?raw=true" alt="Pineapple Themed Cake">
-              <img src="https://preppykitchen.com/wp-content/uploads/2023/08/Apple-Pie-Recipe-Feature.jpg" alt="Apple Pie">
-              <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2292.JPEG?raw=true" alt="Memorial Day Cookies">
-              <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2678.JPEG?raw=true" alt="Bluey Cupcakes">
-              <img src=https://github.com/TheMundolorian/Baking/blob/master/Photos/IMG_2405.JPEG?raw=true alt="Red Velvet Cupcakes">
+            <button class="scroll-button scroll-left" onclick="scrollImages(-315)">&#10094;</button>
+            <div class="scroll-container">
+                <img src="https://github.com/TheMundolorian/Baking/blob/master/Photos/AD163820-3B2C-425B-A625-84278028A28B.JPEG?raw=true" alt="Cake">
+                <img src="https://preppykitchen.com/wp-content/uploads/2023/08/Apple-Pie-Recipe-Feature.jpg" alt="Pie">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2292.JPEG?raw=true" alt="Cookies">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/IMG_2678.JPEG?raw=true" alt="Cupcakes">
+                <img src="https://github.com/TheMundolorian/Baking/blob/master/Photos/IMG_0252.JPEG?raw=true" alt="Galaxy themed cake">
+                <img src="https://github.com/TheMundolorian/Baking/blob/main/Photos/71113418607__CA7050A3-AFDE-401E-9FD1-A8BBAE4138F4.JPEG?raw=true" alt="Traditional Tres leches cake">
             </div>
             <button class="scroll-button scroll-right" onclick="scrollImages(315)">&#10095;</button>
         </div>
@@ -142,7 +142,7 @@
         <p>Address: 123 Baking Lane, Sweet City, CA 98765</p>
     </section>
     
-	<script>
+    <script>
         function scrollImages(scrollOffset) {
             const container = document.querySelector('.scroll-container');
             container.scrollBy({ left: scrollOffset, behavior: 'smooth' });
